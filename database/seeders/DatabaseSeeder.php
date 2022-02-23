@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\TransaksiDetail;
-use App\Models\TransaksiItem;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
