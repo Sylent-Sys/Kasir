@@ -18,6 +18,9 @@
                         Remember Me
                     </label>
                 </div>
+                <div class="mb-3 text-center">
+                    <a href="{{ route('auth.register') }}" class="text-decoration-none">Belum Punya Akun?</a>
+                </div>
                 <div>
                     <button class="w-100 btn btn-primary" type="submit">Login</button>
                 </div>
