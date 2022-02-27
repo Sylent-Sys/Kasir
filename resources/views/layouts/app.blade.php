@@ -10,6 +10,7 @@
     @if (!Request::routeIs('auth.*'))
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @endif
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     @livewireStyles
     <style>
         .bd-placeholder-img {
@@ -45,9 +46,6 @@
     @endif
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
-        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
-    </script>
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
 </body>
