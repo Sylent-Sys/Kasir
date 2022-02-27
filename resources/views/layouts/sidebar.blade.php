@@ -3,14 +3,14 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="home"></span>
+                    <i class="bi bi-house"></i>
                     Dashboard
                 </a>
             </li>
             @canany(['admin'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="file"></span>
+                        <i class="bi bi-file-earmark"></i>
                         Menu
                     </a>
                 </li>
@@ -18,7 +18,7 @@
             @canany(['admin','pengguna','waiter'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="shopping-cart"></span>
+                        <i class="bi bi-cart"></i>
                         Pesanan
                     </a>
                 </li>
@@ -26,7 +26,7 @@
             @canany(['admin','kasir'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="users"></span>
+                        <i class="bi bi-people"></i>
                         Transaksi
                     </a>
                 </li>
@@ -34,7 +34,7 @@
             @canany(['admin','waiter','owner'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="bar-chart-2"></span>
+                        <i class="bi bi-pie-chart"></i>
                         Laporan
                     </a>
                 </li>
