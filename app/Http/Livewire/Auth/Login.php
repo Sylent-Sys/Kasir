@@ -30,7 +30,6 @@ class Login extends Component
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
-                $this->dispatchBrowserEvent('alert', ['type'=>'error','message'=>'Akun anda belum aktif']);
             }
             return redirect(route('dashboard'));
         }
