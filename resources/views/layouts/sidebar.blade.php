@@ -7,30 +7,38 @@
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    Pesanan
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="shopping-cart"></span>
-                    Menu
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="users"></span>
-                    Transaksi
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="bar-chart-2"></span>
-                    Laporan
-                </a>
-            </li>
+            @canany(['admin'])
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="shopping-cart"></span>
+                        Menu
+                    </a>
+                </li>
+            @endcanany
+            @canany(['admin','pengguna','waiter'])
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="file"></span>
+                        Pesanan
+                    </a>
+                </li>
+            @endcanany
+            @canany(['admin','kasir'])
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="users"></span>
+                        Transaksi
+                    </a>
+                </li>
+            @endcanany
+            @canany(['admin','waiter','owner'])
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span data-feather="bar-chart-2"></span>
+                        Laporan
+                    </a>
+                </li>
+            @endcanany
         </ul>
     </div>
 </nav>
