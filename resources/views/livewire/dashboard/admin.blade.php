@@ -1,0 +1,5 @@
+@include('livewire.dashboard.table', ['data'=>$data->where('role',App\Helpers\RoleUser::ADMIN),'title'=>'Admin'])
+@include('livewire.dashboard.table', ['data'=>$data->where('role',App\Helpers\RoleUser::PENGGUNA),'title'=>'Pengguna'])
+@include('livewire.dashboard.table', ['data'=>$data->where('role',App\Helpers\RoleUser::WAITER),'title'=>'Waiter'])
+@include('livewire.dashboard.table', ['data'=>$data->where('role',App\Helpers\RoleUser::KASIR),'title'=>'Kasir'])
+@include('livewire.dashboard.table', ['data'=>$data->where('role',App\Helpers\RoleUser::OWNER),'title'=>'Owner'])
