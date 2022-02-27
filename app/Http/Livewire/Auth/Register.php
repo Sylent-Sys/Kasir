@@ -11,12 +11,16 @@ class Register extends Component
     public $data = [
         'name'=>'',
         'email'=>'',
-        'password'=>''
+        'password'=>'',
+        'role'=>RoleUser::PENGGUNA,
+        'is_aktif'=>false,
     ];
     public $rules = [
         'data.name'=>'required',
         'data.email'=>'required',
-        'data.password'=>'required'
+        'data.password'=>'required',
+        'data.role'=>'required',
+        'data.is_aktif'=>'required',
     ];
     public function render()
     {
@@ -25,8 +29,6 @@ class Register extends Component
     public function register() {
         $this->validate();
         if(User::query()->create(collect($this->data)->merge([
-            'role'=>RoleUser::PENGGUNA,
-            'is_aktif'=>false,
             'password'=>bcrypt($this->data['password']),
         ])->all())->save()) {
             return redirect()->route('auth.login');
