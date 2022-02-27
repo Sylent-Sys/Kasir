@@ -10,7 +10,7 @@
             @canany(['admin'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="shopping-cart"></span>
+                        <span data-feather="file"></span>
                         Menu
                     </a>
                 </li>
@@ -18,7 +18,7 @@
             @canany(['admin','pengguna','waiter'])
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <span data-feather="file"></span>
+                        <span data-feather="shopping-cart"></span>
                         Pesanan
                     </a>
                 </li>
