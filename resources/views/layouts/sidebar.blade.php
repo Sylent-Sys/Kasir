@@ -9,7 +9,7 @@
             </li>
             @canany(['admin'])
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('menu.index') }}">
                         <i class="bi bi-file-earmark"></i>
                         Menu
                     </a>

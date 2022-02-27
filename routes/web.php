@@ -3,6 +3,7 @@
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Menu\IndexMenu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
+});
+Route::prefix('menu')->name('menu.')->group(function () {
+    Route::get('/', IndexMenu::class)->name('index');
 });
