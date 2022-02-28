@@ -3,6 +3,8 @@
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Menu\AddMenu;
+use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -33,4 +35,6 @@ Route::middleware('auth')->group(function () {
 });
 Route::prefix('menu')->name('menu.')->middleware('can:admin')->group(function () {
     Route::get('/', IndexMenu::class)->name('index');
+    Route::get('add', AddMenu::class)->name('add');
+    Route::get('edit', EditMenu::class)->name('edit');
 });
