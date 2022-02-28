@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data as $item)
+            @forelse ($data as $item)
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
@@ -28,7 +28,11 @@
                         @endif
                     </td>
                 </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="3" class="text-center fw-bold">Data Tidak Ada</td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>
