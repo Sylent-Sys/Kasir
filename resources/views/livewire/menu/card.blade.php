@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ $menu->nama }}</h5>
             <p>
-                <span>Harga : {{ $menu->harga }}</span><br>
+                <span>Harga : {{ App\Helpers\Globals::rupiah($menu->harga) }}</span><br>
                 <span>Stok : {{ $menu->stok }}</span><br>
                 {{ $menu->deskripsi }}
             </p>
