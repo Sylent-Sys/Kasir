@@ -27,7 +27,7 @@ class TransaksiDetailFactory extends Factory
         return [
             'id_transaksi_item' => TransaksiItem::factory(),
             'id_menu' => Menu::factory(),
-            'jumlah' => $this->faker->numberBetween(-10000, 10000),
+            'jumlah' => $this->faker->numberBetween(0, 10000),
         ];
     }
 }

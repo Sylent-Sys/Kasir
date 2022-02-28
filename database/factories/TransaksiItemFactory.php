@@ -25,7 +25,7 @@ class TransaksiItemFactory extends Factory
     {
         return [
             'id_user' => User::factory(),
-            'no_meja' => $this->faker->numberBetween(-10000, 10000),
+            'no_meja' => $this->faker->numberBetween(0, 10000),
         ];
     }
 }
