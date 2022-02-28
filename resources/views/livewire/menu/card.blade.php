@@ -8,6 +8,7 @@
                 <span>Stok : {{ $menu->stok }}</span><br>
                 {{ $menu->deskripsi }}
             </p>
+            <a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-primary">Edit</a>
             <a wire:click="delete({{ $menu->id }})" class="btn btn-danger">Delete</a>
         </div>
     </div>
