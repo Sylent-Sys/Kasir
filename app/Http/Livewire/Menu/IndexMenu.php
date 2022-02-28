@@ -11,4 +11,7 @@ class IndexMenu extends Component
     {
         return view('livewire.menu.index-menu',['data'=>Menu::all()]);
     }
+    public function delete(Menu $menu) {
+        $menu->delete();
+    }
 }

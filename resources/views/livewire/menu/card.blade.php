@@ -8,6 +8,7 @@
                 <span>Stok : {{ $menu->stok }}</span><br>
                 {{ $menu->deskripsi }}
             </p>
+            <a wire:click="delete({{ $menu->id }})" class="btn btn-danger">Delete</a>
         </div>
     </div>
 </div>
