@@ -1,7 +1,5 @@
 <div>
-    <div class="pt-3 pb-2 mb-3 border-bottom">
-        <h1>Dashboard</h1>
-    </div>
+    @include('layouts.title',['title'=>'Dashboard'])
     @can('admin')
         @include('livewire.dashboard.admin')
     @endcan
