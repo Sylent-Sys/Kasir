@@ -1,6 +1,6 @@
 <div class="col-4 mb-3">
     <div class="card">
-        <img src="{{ $menu->gambar }}" class="card-img-top" alt="gambar" height="200px">
+        <img src="{{ App\Helpers\Globals::check_image_path($menu->gambar) }}" class="card-img-top" alt="gambar" height="200px">
         <div class="card-body">
             <h5 class="card-title">{{ $menu->nama }}</h5>
             <p>
