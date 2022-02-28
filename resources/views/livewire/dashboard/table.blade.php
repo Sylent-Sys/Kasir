@@ -1,4 +1,4 @@
-<h2 class="h3">Data {{ $title }}</h2>
+<h2>Data {{ $title }}</h2>
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
