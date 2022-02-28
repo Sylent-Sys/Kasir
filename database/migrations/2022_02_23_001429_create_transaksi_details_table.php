@@ -17,8 +17,8 @@ class CreateTransaksiDetailsTable extends Migration
 
         Schema::create('transaksi_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_transaksi_item')->constrained('transaksi_items');
-            $table->foreignId('id_menu')->constrained('menus');
+            $table->foreignId('id_transaksi_item')->constrained('transaksi_items')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_menu')->constrained('menus')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('jumlah');
             $table->timestamps();
         });
