@@ -41,7 +41,7 @@ class TransaksiDetail extends Model
 
     public function transaksiItems()
     {
-        return $this->hasMany(TransaksiItem::class);
+        return $this->hasMany(TransaksiItem::class,'id_transaksi_detail');
     }
 
     public function pembayarans()
