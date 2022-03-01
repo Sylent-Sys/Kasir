@@ -20,7 +20,7 @@
                         $totalHarga = 0;
                     @endphp
                     @foreach ($dataPesanan as $key => $value)
-                        @if ($value['jumlah'] == 0)
+                        @if ($value['jumlah'] == 0 || $value['jumlah'] == '')
                             @continue
                         @endif
                         @php
