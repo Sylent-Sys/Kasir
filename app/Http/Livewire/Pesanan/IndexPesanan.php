@@ -38,6 +38,6 @@ class IndexPesanan extends Component
                 $transaksiDetail->transaksiItems()->save($transaksiItem);
             }
         }
-        return redirect(route('pesanan.index'));
+        $this->reset(['dataPesanan','no_meja']);
     }
 }
