@@ -4,8 +4,9 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Menu;
+use App\Models\TransaksiDetail;
 use App\Models\TransaksiItem;
-use App\Models\User;
 
 class TransaksiItemFactory extends Factory
 {
@@ -24,8 +25,9 @@ class TransaksiItemFactory extends Factory
     public function definition()
     {
         return [
-            'id_user' => User::factory(),
-            'no_meja' => $this->faker->numberBetween(0, 10000),
+            'id_transaksi_detail' => TransaksiDetail::factory(),
+            'id_menu' => Menu::factory(),
+            'jumlah' => $this->faker->numberBetween(0, 10000),
         ];
     }
 }
