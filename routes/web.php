@@ -7,6 +7,7 @@ use App\Http\Livewire\Menu\AddMenu;
 use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
 use App\Http\Livewire\Pesanan\IndexPesanan;
+use App\Http\Livewire\Transaksi\IndexTransaksi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +41,8 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('pesanan')->name('pesanan.')->group(function () {
         Route::get('/', IndexPesanan::class)->name('index');
+    });
+    Route::prefix('transaksi')->name('transaksi.')->group(function () {
+        Route::get('/', IndexTransaksi::class)->name('index');
     });
 });
