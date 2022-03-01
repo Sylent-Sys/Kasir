@@ -4,11 +4,8 @@
             height="100px">
         <div class="card-body">
             <h6 class="card-title">{{ $menu->nama }}</h6>
-            <small>
-                <span>Harga : {{ App\Helpers\Globals::rupiah($menu->harga) }}</span><br>
-                <span>Stok : {{ $menu->stok }}</span><br>
-                {{ $menu->deskripsi }}
-            </small>
+            <small class="d-block">Harga : {{ App\Helpers\Globals::rupiah($menu->harga) }}</small>
+            <small class="d-block">Stok : {{ $menu->stok }}</small>
             @if (Request::routeIs('menu.index'))
                 <div>
                     <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-sm btn-primary">Edit</a>
