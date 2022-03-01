@@ -32,9 +32,9 @@ Route::prefix('auth')->name('auth.')->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::get('/', Dashboard::class)->name('dashboard');
-});
-Route::prefix('menu')->name('menu.')->middleware('can:admin')->group(function () {
-    Route::get('/', IndexMenu::class)->name('index');
-    Route::get('add', AddMenu::class)->name('add');
-    Route::get('edit/{menu}', EditMenu::class)->name('edit');
+    Route::prefix('menu')->name('menu.')->middleware('can:admin')->group(function () {
+        Route::get('/', IndexMenu::class)->name('index');
+        Route::get('add', AddMenu::class)->name('add');
+        Route::get('edit/{menu}', EditMenu::class)->name('edit');
+    });
 });
