@@ -1,4 +1,4 @@
-<div class="col-md-3 col-sm-4 mb-3">
+<div class="col-md-4 col-sm-6 mb-3">
     <div class="card">
         <img src="{{ App\Helpers\Globals::check_image_path($menu->gambar) }}" class="card-img-top" alt="gambar"
             height="100px">
