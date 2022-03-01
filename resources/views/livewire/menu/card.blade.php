@@ -14,7 +14,7 @@
             @endif
             @if ($options['pesanan']??'')
             <div>
-                <input type="number" class="form-control" wire:model='data.{{ $menu->id }}.jumlah' min="0">
+                <input type="number" class="form-control" wire:model='dataPesanan.{{ $menu->id }}.jumlah' min="0">
             </div>
             @endif
         </div>
