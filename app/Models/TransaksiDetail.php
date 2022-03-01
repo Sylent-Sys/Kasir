@@ -15,9 +15,8 @@ class TransaksiDetail extends Model
      * @var array
      */
     protected $fillable = [
-        'id_transaksi_item',
-        'id_menu',
-        'jumlah',
+        'id_user',
+        'no_meja',
     ];
 
     /**
@@ -27,17 +26,26 @@ class TransaksiDetail extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'id_transaksi_item' => 'integer',
-        'id_menu' => 'integer',
+        'id_user' => 'integer',
     ];
 
-    public function idTransaksiItem()
+    public function user()
     {
-        return $this->belongsTo(TransaksiItem::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function idMenu()
+    public function idUser()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function transaksiItems()
+    {
+        return $this->hasMany(TransaksiItem::class);
+    }
+
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class);
     }
 }

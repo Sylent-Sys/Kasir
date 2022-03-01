@@ -30,8 +30,8 @@ class Menu extends Model
         'id' => 'integer',
     ];
 
-    public function transaksiDetails()
+    public function transaksiItems()
     {
-        return $this->hasMany(TransaksiDetail::class);
+        return $this->hasMany(TransaksiItem::class);
     }
 }
