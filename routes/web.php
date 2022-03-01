@@ -6,6 +6,7 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Menu\AddMenu;
 use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
+use App\Http\Livewire\Pesanan\IndexPesanan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

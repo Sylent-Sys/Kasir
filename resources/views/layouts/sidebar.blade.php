@@ -17,7 +17,7 @@
             @endcanany
             @canany(['admin','pengguna','waiter'])
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('pesanan.index') }}">
                         <i class="bi bi-cart"></i>
                         Pesanan
                     </a>
