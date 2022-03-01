@@ -3,6 +3,7 @@
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\IndexPesanan;
 use App\Http\Livewire\Menu\AddMenu;
 use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
@@ -36,5 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', IndexMenu::class)->name('index');
         Route::get('add', AddMenu::class)->name('add');
         Route::get('edit/{menu}', EditMenu::class)->name('edit');
+    });
+    Route::prefix('pesanan')->name('pesanan.')->group(function () {
+        Route::get('/', IndexPesanan::class)->name('index');
     });
 });
