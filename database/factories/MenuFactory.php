@@ -26,7 +26,6 @@ class MenuFactory extends Factory
             'nama' => $this->faker->word,
             'harga' => $this->faker->numberBetween(0, 10000),
             'gambar' => $this->faker->imageUrl(400, 300),
-            'deskripsi' => $this->faker->text,
             'stok' => $this->faker->numberBetween(0, 10000),
         ];
     }
