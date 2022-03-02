@@ -29,6 +29,9 @@ class IndexPesanan extends Component
         ]);
         if($transaksiDetail->save()) {
             foreach ($this->dataPesanan as $key => $value) {
+                if($value['jumlah'] == 0 || $value['jumlah'] == '') {
+                    continue;
+                }
                 $dataMenu = Menu::find($key);
                 $dataMenu->update(['stok'=>$dataMenu->stok-$value['jumlah']]);
                 $transaksiItem = new TransaksiItem([
