@@ -28,7 +28,7 @@
                             $totalHarga += $modelsMenu->harga * $value['jumlah'];
                         @endphp
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $modelsMenu->nama }}</td>
                             <td>{{ $modelsMenu->harga * $value['jumlah'] }}</td>
                         </tr>
