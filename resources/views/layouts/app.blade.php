@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kasir</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    @if (!Request::routeIs('auth.*'))
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @endif
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     @livewireStyles
     <style>
         .bd-placeholder-img {
@@ -47,7 +46,13 @@
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @livewireScripts
+    <script>
+        window.addEventListener('alert', event => {
+            toastr[event.detail.type](event.detail.message);
+        });
+    </script>
 </body>
 
 </html>
