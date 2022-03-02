@@ -18,7 +18,7 @@ class IndexPesanan extends Component
     ];
     public function render()
     {
-        return view('livewire.pesanan.index-pesanan', ['data'=>Menu::all()]);
+        return view('livewire.pesanan.index-pesanan', ['data'=>Menu::query()->where('stok','>','0')->get()]);
     }
     public function pesan()
     {
