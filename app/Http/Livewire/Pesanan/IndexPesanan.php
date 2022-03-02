@@ -41,6 +41,7 @@ class IndexPesanan extends Component
                 $transaksiDetail->transaksiItems()->save($transaksiItem);
             }
         }
+        $this->dispatchBrowserEvent('alert',['type'=>'success','message'=>'Pesanan berhasil ditambahkan']);
         $this->reset(['dataPesanan','no_meja']);
     }
 }
