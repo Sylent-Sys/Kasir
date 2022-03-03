@@ -14,23 +14,15 @@ class IndexPesanan extends Component
     public $no_meja;
     public $rules = [
         'dataPesanan' => 'required',
-        'no_meja'=>'required'
+        'no_meja'=>'required',
     ];
     public function render()
     {
         return view('livewire.pesanan.index-pesanan', ['data'=>Menu::query()->where('stok', '>', '0')->get()]);
     }
-    public function pesan()
+    public function pesan($totalHarga)
     {
         $this->validate();
-        $totalHarga = 0;
-        foreach ($this->dataPesanan as $key => $value) {
-            if ($value['jumlah'] == 0 || $value['jumlah'] == '') {
-                continue;
-            }
-            $modelsMenu = Menu::find($key);
-            $totalHarga += $modelsMenu->harga * $value['jumlah'];
-        }
         $transaksiDetail = new TransaksiDetail([
             'id_user'=>Auth::id(),
             'total'=>$totalHarga,

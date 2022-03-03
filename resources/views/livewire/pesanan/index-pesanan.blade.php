@@ -43,7 +43,7 @@
                 <small>No Meja</small>
                 <input class="form-control form-control-sm" type="number" wire:model='no_meja'>
             </div>
-            <button class="btn btn-primary" wire:click='pesan'><i class="bi bi-cart-check"></i></button>
+            <button class="btn btn-primary" wire:click='pesan({{ $totalHarga }})'><i class="bi bi-cart-check"></i></button>
         </div>
     </div>
 </div>
