@@ -35,11 +35,11 @@ class Pembayaran extends Model
 
     public function idUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
 
     public function idTransaksiDetail()
     {
-        return $this->belongsTo(TransaksiDetail::class);
+        return $this->belongsTo(TransaksiDetail::class,'id_transaksi_detail');
     }
 }

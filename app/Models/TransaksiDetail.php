@@ -31,12 +31,12 @@ class TransaksiDetail extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
 
     public function idUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id_user');
     }
 
     public function transaksiItems()
@@ -46,6 +46,6 @@ class TransaksiDetail extends Model
 
     public function pembayarans()
     {
-        return $this->hasMany(Pembayaran::class);
+        return $this->hasMany(Pembayaran::class,'id_transaksi_detail');
     }
 }

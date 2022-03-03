@@ -33,11 +33,11 @@ class TransaksiItem extends Model
 
     public function idTransaksiDetail()
     {
-        return $this->belongsTo(TransaksiDetail::class);
+        return $this->belongsTo(TransaksiDetail::class,'id_transaksi_detail');
     }
 
     public function idMenu()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(Menu::class,'id_menu');
     }
 }
