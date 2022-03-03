@@ -17,7 +17,6 @@ class IndexTransaksi extends Component
     }
     public function hapus(TransaksiDetail $transaksiDetail) {
         $transaksiDetail->delete();
-
         $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Transaksi berhasil dihapus']);
     }
 }
