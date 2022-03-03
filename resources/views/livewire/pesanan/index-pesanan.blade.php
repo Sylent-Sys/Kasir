@@ -30,12 +30,12 @@
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $modelsMenu->nama }}</td>
-                            <td>{{ $modelsMenu->harga * $value['jumlah'] }}</td>
+                            <td>{{ \App\Helpers\Globals::rupiah($modelsMenu->harga * $value['jumlah']) }}</td>
                         </tr>
                     @endforeach
                     <tr>
                         <td colspan="2">Total Harga</td>
-                        <td>{{ $totalHarga }}</td>
+                        <td>{{ \App\Helpers\Globals::rupiah($totalHarga) }}</td>
                     </tr>
                 </tbody>
             </table>
