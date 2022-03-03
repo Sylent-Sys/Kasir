@@ -8,8 +8,8 @@
             <small class="d-block">Stok : {{ $menu->stok }}</small>
             @if ($options['menu']??'')
                 <div>
-                    <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                    <a wire:click="delete({{ $menu->id }})" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pen"></i></a>
+                    <a wire:click="delete({{ $menu->id }})" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                 </div>
             @endif
             @if ($options['pesanan']??'')
