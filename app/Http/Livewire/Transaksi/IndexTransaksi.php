@@ -15,4 +15,9 @@ class IndexTransaksi extends Component
             'sudahBayar'=>Pembayaran::query()->with(['user','transaksiDetail'])->get()
         ]);
     }
+    public function hapus(TransaksiDetail $transaksiDetail) {
+        $transaksiDetail->delete();
+
+        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Transaksi berhasil dihapus']);
+    }
 }

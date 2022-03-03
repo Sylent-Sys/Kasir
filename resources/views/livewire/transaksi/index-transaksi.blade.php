@@ -23,7 +23,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center">Tidak ada data</td>
+                        <td colspan="4" class="text-center fw-bold">Tidak ada data</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -50,11 +50,11 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->transaksiDetail->no_meja }}</td>
                         <td>{{ \App\Helpers\Globals::rupiah($item->transaksiDetail->total) }}</td>
-                        <td></td>
+                        <td><button class="btn btn-danger" wire:click='hapus({{ $item->transaksiDetail->id }})'><i class="bi bi-trash"></i></button></td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="text-center">Tidak ada data</td>
+                        <td colspan="6" class="text-center fw-bold">Tidak ada data</td>
                     </tr>
                 @endforelse
             </tbody>
