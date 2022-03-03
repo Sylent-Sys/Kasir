@@ -19,7 +19,10 @@
                         <td>{{ $item->no_meja }}</td>
                         <td>{{ $item->user->name }}</td>
                         <td>{{ \App\Helpers\Globals::rupiah($item->total) }}</td>
-                        <td></td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('transaksi.formPembayaran',$item->id) }}"><i class="bi bi-credit-card"></i></a>
+                            <button class="btn btn-danger" wire:click='hapus({{ $item->id }})'><i class="bi bi-trash"></i></button>
+                        </td>
                     </tr>
                 @empty
                     <tr>
@@ -50,7 +53,9 @@
                         <td>{{ $item->user->name }}</td>
                         <td>{{ $item->transaksiDetail->no_meja }}</td>
                         <td>{{ \App\Helpers\Globals::rupiah($item->transaksiDetail->total) }}</td>
-                        <td><button class="btn btn-danger" wire:click='hapus({{ $item->transaksiDetail->id }})'><i class="bi bi-trash"></i></button></td>
+                        <td>
+                            <button class="btn btn-danger" wire:click='hapus({{ $item->transaksiDetail->id }})'><i class="bi bi-trash"></i></button>
+                        </td>
                     </tr>
                 @empty
                     <tr>
