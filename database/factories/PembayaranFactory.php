@@ -3,9 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Pembayaran;
 use App\Models\TransaksiDetail;
+use App\Models\User;
 
 class PembayaranFactory extends Factory
 {
@@ -24,8 +24,11 @@ class PembayaranFactory extends Factory
     public function definition()
     {
         return [
+            'id_user' => User::factory(),
             'id_transaksi_detail' => TransaksiDetail::factory(),
             'total' => $this->faker->numberBetween(0, 10000),
+            'bayar' => $this->faker->numberBetween(0, 10000),
+            'kembalian' => $this->faker->numberBetween(0, 10000),
         ];
     }
 }

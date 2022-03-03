@@ -15,8 +15,11 @@ class Pembayaran extends Model
      * @var array
      */
     protected $fillable = [
+        'id_user',
         'id_transaksi_detail',
         'total',
+        'bayar',
+        'kembalian',
     ];
 
     /**
@@ -26,8 +29,14 @@ class Pembayaran extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'id_user' => 'integer',
         'id_transaksi_detail' => 'integer',
     ];
+
+    public function idUser()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function idTransaksiDetail()
     {
