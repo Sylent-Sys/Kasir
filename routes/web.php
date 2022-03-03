@@ -8,6 +8,7 @@ use App\Http\Livewire\Menu\AddMenu;
 use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
 use App\Http\Livewire\Pesanan\IndexPesanan;
+use App\Http\Livewire\Transaksi\FormPembayaran;
 use App\Http\Livewire\Transaksi\IndexTransaksi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('transaksi')->name('transaksi.')->group(function () {
         Route::get('/', IndexTransaksi::class)->name('index');
+        Route::get('pembayaran/{transaksiDetail}', FormPembayaran::class)->name('formPembayaran');
     });
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
