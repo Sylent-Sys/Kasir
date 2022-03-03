@@ -3,6 +3,7 @@
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Laporan\IndexLaporan;
 use App\Http\Livewire\Menu\AddMenu;
 use App\Http\Livewire\Menu\EditMenu;
 use App\Http\Livewire\Menu\IndexMenu;
@@ -44,5 +45,8 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('transaksi')->name('transaksi.')->group(function () {
         Route::get('/', IndexTransaksi::class)->name('index');
+    });
+    Route::prefix('laporan')->name('laporan.')->group(function () {
+        Route::get('/', IndexLaporan::class)->name('index');
     });
 });

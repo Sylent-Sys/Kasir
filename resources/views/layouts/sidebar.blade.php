@@ -33,7 +33,7 @@
             @endcanany
             @canany(['admin','waiter','owner'])
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('laporan.index') }}">
                         <i class="bi bi-pie-chart"></i>
                         Laporan
                     </a>
