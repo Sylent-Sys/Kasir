@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Pesanan;
 use App\Models\Menu;
 use App\Models\TransaksiDetail;
 use App\Models\TransaksiItem;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class IndexPesanan extends Component
@@ -24,7 +23,7 @@ class IndexPesanan extends Component
     {
         $this->validate();
         $transaksiDetail = new TransaksiDetail([
-            'id_user'=>Auth::id(),
+            'id_user'=>auth()->user()->id,
             'total'=>$totalHarga,
             'no_meja'=>$this->no_meja
         ]);
