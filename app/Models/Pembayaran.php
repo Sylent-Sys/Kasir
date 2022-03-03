@@ -17,7 +17,6 @@ class Pembayaran extends Model
     protected $fillable = [
         'id_user',
         'id_transaksi_detail',
-        'total',
         'bayar',
         'kembalian',
     ];

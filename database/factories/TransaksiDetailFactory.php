@@ -26,6 +26,7 @@ class TransaksiDetailFactory extends Factory
         return [
             'id_user' => User::factory(),
             'no_meja' => $this->faker->numberBetween(0, 10000),
+            'total' => $this->faker->numberBetween(0, 10000),
         ];
     }
 }

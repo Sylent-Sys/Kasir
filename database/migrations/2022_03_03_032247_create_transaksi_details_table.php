@@ -19,6 +19,7 @@ class CreateTransaksiDetailsTable extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('no_meja');
+            $table->integer('total');
             $table->timestamps();
         });
 

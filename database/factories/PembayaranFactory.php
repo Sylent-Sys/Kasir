@@ -26,7 +26,6 @@ class PembayaranFactory extends Factory
         return [
             'id_user' => User::factory(),
             'id_transaksi_detail' => TransaksiDetail::factory(),
-            'total' => $this->faker->numberBetween(0, 10000),
             'bayar' => $this->faker->numberBetween(0, 10000),
             'kembalian' => $this->faker->numberBetween(0, 10000),
         ];

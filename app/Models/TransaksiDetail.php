@@ -16,6 +16,7 @@ class TransaksiDetail extends Model
      */
     protected $fillable = [
         'id_user',
+        'total',
         'no_meja',
     ];
 
