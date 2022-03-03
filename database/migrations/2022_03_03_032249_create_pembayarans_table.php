@@ -17,8 +17,8 @@ class CreatePembayaransTable extends Migration
 
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users');
-            $table->foreignId('id_transaksi_detail')->constrained('transaksi_details');
+            $table->foreignId('id_user')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_transaksi_detail')->constrained('transaksi_details')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('total');
             $table->integer('bayar');
             $table->integer('kembalian');
