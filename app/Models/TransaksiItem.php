@@ -31,6 +31,16 @@ class TransaksiItem extends Model
         'id_menu' => 'integer',
     ];
 
+    public function transaksiDetail()
+    {
+        return $this->belongsTo(TransaksiDetail::class,'id_transaksi_detail');
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class,'id_menu');
+    }
+
     public function idTransaksiDetail()
     {
         return $this->belongsTo(TransaksiDetail::class,'id_transaksi_detail');
