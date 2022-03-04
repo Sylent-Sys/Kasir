@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrintController;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
@@ -47,8 +48,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('transaksi')->name('transaksi.')->group(function () {
         Route::get('/', IndexTransaksi::class)->name('index');
         Route::get('pembayaran/{transaksiDetail}', FormPembayaran::class)->name('formPembayaran');
+        Route::get('print/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('print');
     });
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
+        Route::get('print/{menu}', [PrintController::class, 'printLaporan'])->name('print');
     });
 });
