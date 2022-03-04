@@ -1,5 +1,6 @@
 <div>
     @include('layouts.title',['title'=>'Laporan'])
+    <a href="{{ route('laporan.print') }}" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></a>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
