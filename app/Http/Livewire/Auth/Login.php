@@ -30,8 +30,11 @@ class Login extends Component
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
+                $this->dispatchBrowserEvent('alert', ['type'=>'error','message'=>'Akun anda belum diaktifkan']);
+                return;
             }
             return redirect(route('dashboard'));
         }
+        $this->dispatchBrowserEvent('alert', ['type'=>'error','message'=>'Akun anda tidak terdaftar']);
     }
 }
