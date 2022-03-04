@@ -15,5 +15,6 @@ class IndexMenu extends Component
     public function delete(Menu $menu) {
         Storage::delete($menu->gambar);
         $menu->delete();
+        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Menu berhasil dihapus']);
     }
 }
