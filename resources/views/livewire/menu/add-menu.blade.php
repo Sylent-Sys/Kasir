@@ -14,10 +14,6 @@
             <input type="file" class="form-control" wire:model.lazy='data.gambar'>
         </div>
         <div class="mb-3">
-            <label class="form-label">Deskripsi</label>
-            <textarea class="form-control" wire:model.lazy='data.deskripsi'></textarea>
-        </div>
-        <div class="mb-3">
             <label class="form-label">Stok</label>
             <input type="number" class="form-control" wire:model.lazy='data.stok'>
         </div>
