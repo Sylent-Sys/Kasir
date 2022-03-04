@@ -42,15 +42,15 @@ Route::middleware('auth')->group(function () {
         Route::get('add', AddMenu::class)->name('add');
         Route::get('edit/{menu}', EditMenu::class)->name('edit');
     });
-    Route::prefix('pesanan')->name('pesanan.')->group(function () {
+    Route::prefix('pesanan')->name('pesanan.')->middleware('can:admin,pengguna,waiter')->group(function () {
         Route::get('/', IndexPesanan::class)->name('index');
     });
-    Route::prefix('transaksi')->name('transaksi.')->group(function () {
+    Route::prefix('transaksi')->name('transaksi.')->middleware('can:admin,kasir')->group(function () {
         Route::get('/', IndexTransaksi::class)->name('index');
         Route::get('pembayaran/{transaksiDetail}', FormPembayaran::class)->name('formPembayaran');
         Route::get('print/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('print');
     });
-    Route::prefix('laporan')->name('laporan.')->group(function () {
+    Route::prefix('laporan')->name('laporan.')->middleware('can:admin,kasir,waiter,owner')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
         Route::get('print', [PrintController::class, 'printLaporan'])->name('print');
     });

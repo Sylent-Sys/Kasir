@@ -31,7 +31,7 @@
                     </a>
                 </li>
             @endcanany
-            @canany(['admin','waiter','owner'])
+            @canany(['admin','kasir','waiter','owner'])
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('laporan.index') }}">
                         <i class="bi bi-pie-chart"></i>
