@@ -1,17 +1,3 @@
-<div class="container">
-    <span id="remove">
-        <a class="btn btn-success" id="ct"><span class="icon-print"></span> CETAK</a>
-    </span>
-</div>
-<center>
-    <h4>
-        RESTORAN CEPAT SAJI
-    </h4>
-    <span>
-        Jl. XXX No. XXX Ds. XXX, Kec. XXX, Kab. XXX, XXX<br>
-        Telp. +628x xxx xxx xxx || E-mail exsample@gmail.com
-    </span>
-</center>
 <table class="border border-end-0 border-start-0">
     <tr>
         <td>Nama Pelanggan &nbsp;&nbsp;</td>

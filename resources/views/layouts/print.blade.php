@@ -12,6 +12,20 @@
 
 <body class="p-3">
     <page size="A4" id="printArea">
+        <div id="remove" class="pt-3">
+            <span>
+                <a class="btn btn-success" id="ct"><span class="icon-print"></span> CETAK</a>
+            </span>
+        </div>
+        <center>
+            <h4>
+                RESTORAN CEPAT SAJI
+            </h4>
+            <span>
+                Jl. XXX No. XXX Ds. XXX, Kec. XXX, Kab. XXX, XXX<br>
+                Telp. +628x xxx xxx xxx || E-mail exsample@gmail.com
+            </span>
+        </center>
         @if (Request::routeIs('transaksi.print'))
             @include('layouts.printLayouts.transaksi')
         @else
