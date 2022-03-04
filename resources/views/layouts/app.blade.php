@@ -9,8 +9,8 @@
     @livewireStyles
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 
 <body>
