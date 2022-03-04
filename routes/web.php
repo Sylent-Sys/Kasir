@@ -52,6 +52,6 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
-        Route::get('print/{menu}', [PrintController::class, 'printLaporan'])->name('print');
+        Route::get('print', [PrintController::class, 'printLaporan'])->name('print');
     });
 });
