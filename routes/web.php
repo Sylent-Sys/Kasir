@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
         Route::get('pembayaran/{transaksiDetail}', FormPembayaran::class)->name('formPembayaran');
         Route::get('print/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('print');
     });
-    Route::prefix('laporan')->name('laporan.')->middleware('can:admin,kasir,waiter,owner')->group(function () {
+    Route::prefix('laporan')->name('laporan.')->middleware('can:admin,kasir,owner')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
         Route::get('print', [PrintController::class, 'printLaporan'])->name('print');
     });
