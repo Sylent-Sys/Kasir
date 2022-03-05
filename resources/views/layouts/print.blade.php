@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/print.css') }}">
 </head>
 
@@ -14,7 +15,7 @@
     <page size="A4" id="printArea">
         <div id="remove" class="pt-3">
             <span>
-                <a class="btn btn-success" id="ct"><span class="icon-print"></span> CETAK</a>
+                <a class="btn btn-success" id="ct"><i class="bi bi-printer"></i></a>
             </span>
         </div>
         <center>
