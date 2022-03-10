@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateMenusTable extends Migration
@@ -21,6 +22,8 @@ class CreateMenusTable extends Migration
             $table->integer('stok');
             $table->timestamps();
         });
+        DB::select("DROP PROCEDURE IF EXISTS `hapusMenu`");
+        DB::select("CREATE PROCEDURE `hapusMenu`(IN `idMenu` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM `menus` WHERE `menus`.`id`=idMenu");
     }
 
     /**
