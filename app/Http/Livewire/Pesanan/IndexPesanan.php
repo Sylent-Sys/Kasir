@@ -35,6 +35,7 @@ class IndexPesanan extends Component
                 // $dataMenu = Menu::find($key);
                 // $dataMenu->update(['stok'=>$dataMenu->stok-$value['jumlah']]);
                 // Pengganti Kode Diatas Buat Trigger Dengan Kode Dibawah Ini
+                // After Insert dengan nama kurangStok di tabel transaksi_items
                 // UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.id_menu
                 $transaksiItem = new TransaksiItem([
                     'id_menu'=>$key,
