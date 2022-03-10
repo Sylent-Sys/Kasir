@@ -32,8 +32,10 @@ class IndexPesanan extends Component
                 if ($value['jumlah'] == 0 || $value['jumlah'] == '') {
                     continue;
                 }
-                $dataMenu = Menu::find($key);
-                $dataMenu->update(['stok'=>$dataMenu->stok-$value['jumlah']]);
+                // $dataMenu = Menu::find($key);
+                // $dataMenu->update(['stok'=>$dataMenu->stok-$value['jumlah']]);
+                // Pengganti Kode Diatas Buat Trigger Dengan Kode Dibawah Ini
+                // UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.id_menu
                 $transaksiItem = new TransaksiItem([
                     'id_menu'=>$key,
                     'jumlah'=>$value['jumlah']
