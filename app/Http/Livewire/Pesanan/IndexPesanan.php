@@ -19,6 +19,15 @@ class IndexPesanan extends Component
     {
         return view('livewire.pesanan.index-pesanan', ['data'=>Menu::query()->where('stok', '>', '0')->get()]);
     }
+    public function updated()
+    {
+        foreach ($this->dataPesanan as $key => $value) {
+            $data = Menu::find($key);
+            if ($data->stok < $value['jumlah']) {
+                $this->dispatchBrowserEvent('alert',['type'=>'error','message'=>'Stok tidak mencukupi']);
+            }
+        }
+    }
     public function pesan($totalHarga)
     {
         $this->validate();
