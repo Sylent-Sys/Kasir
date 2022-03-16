@@ -14,7 +14,6 @@ class AddMenu extends Component
         'data.nama' => 'required',
         'data.harga' => 'required',
         'data.gambar' => 'required',
-        'data.deskripsi' => 'required',
         'data.stok' => 'required',
     ];
     public function render()
