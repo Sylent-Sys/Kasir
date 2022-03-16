@@ -17,7 +17,6 @@ class EditMenu extends Component
         'menu.nama' => 'required',
         'menu.harga' => 'required',
         'gambar' => 'image',
-        'menu.deskripsi' => 'required',
         'menu.stok' => 'required',
     ];
     public function render()
