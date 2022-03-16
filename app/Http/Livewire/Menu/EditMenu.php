@@ -16,7 +16,7 @@ class EditMenu extends Component
     public $rules = [
         'menu.nama' => 'required',
         'menu.harga' => 'required',
-        'gambar' => 'image',
+        'gambar' => '',
         'menu.stok' => 'required',
     ];
     public function render()
