@@ -37,7 +37,7 @@
     <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Membayar : </label>
         <div class="col-sm-10">
-            <input class="form-control" type="integer" wire:model.lazy='membayar'>
+            <input class="form-control" type="number" wire:model.lazy='membayar'>
         </div>
     </div>
     <div class="mb-3 row">
@@ -53,7 +53,7 @@
                     $this->dispatchBrowserEvent('alert', ['type'=>'error','message'=>'Uang pembayaran kurang']);
                 }
             @endphp
-            <input class="form-control" type="integer" value="{{ $kembalian }}" readonly>
+            <input class="form-control" type="number" value="{{ $kembalian }}" readonly>
         </div>
     </div>
     <div class="mb-3">
