@@ -19,7 +19,7 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $item->menu->nama }}</td>
                         <td>{{ $item->jumlah }}</td>
-                        <td>{{ $item->menu->harga }}</td>
+                        <td>{{ App\Helpers\Globals::rupiah($item->menu->harga) }}</td>
                         <td>{{ App\Helpers\Globals::rupiah($item->jumlah * $item->menu->harga) }}</td>
                     </tr>
                 @endforeach
