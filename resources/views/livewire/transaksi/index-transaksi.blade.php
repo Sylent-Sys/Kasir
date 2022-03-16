@@ -41,7 +41,7 @@
                 <tr>
                     <th>#</th>
                     <th>Waktu Pesan</th>
-                    <th>Pemesan</th>
+                    <th>Penjaga</th>
                     <th>No Meja</th>
                     <th>Total Harga</th>
                     <th>Aksi</th>
