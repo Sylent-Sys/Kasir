@@ -56,7 +56,7 @@
                         <td>{{ $item->transaksiDetail->no_meja }}</td>
                         <td>{{ \App\Helpers\Globals::rupiah($item->transaksiDetail->total) }}</td>
                         <td>
-                            <a href="{{ route('transaksi.print',$item->transaksiDetail->id) }}" class="btn btn-primary"><i class="bi bi-printer"></i></a>
+                            <a href="{{ route('print.transaksi',$item->transaksiDetail->id) }}" class="btn btn-primary"><i class="bi bi-printer"></i></a>
                             @can('admin')
                                 <button class="btn btn-danger" wire:click='hapus({{ $item->transaksiDetail->id }})'><i class="bi bi-trash"></i></button>
                             @endcan

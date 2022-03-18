@@ -48,10 +48,12 @@ Route::middleware('auth')->group(function () {
     Route::prefix('transaksi')->name('transaksi.')->middleware('can:admin,kasir')->group(function () {
         Route::get('/', IndexTransaksi::class)->name('index');
         Route::get('pembayaran/{transaksiDetail}', FormPembayaran::class)->name('formPembayaran');
-        Route::get('print/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('print');
     });
     Route::prefix('laporan')->name('laporan.')->middleware('can:admin,kasir,owner')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
-        Route::get('print', [PrintController::class, 'printLaporan'])->name('print');
+    });
+    Route::prefix('print')->name('print.')->middleware('can:admin,kasir,owner')->group(function () {
+        Route::get('laporan', [PrintController::class, 'printLaporan'])->name('laporan');
+        Route::get('transaksi/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('transaksi');
     });
 });

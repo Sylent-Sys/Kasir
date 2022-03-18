@@ -27,7 +27,7 @@
                 Telp. +628x xxx xxx xxx || E-mail exsample@gmail.com
             </span>
         </center>
-        @if (Request::routeIs('transaksi.print'))
+        @if (Request::routeIs('print.transaksi'))
             @include('layouts.printLayouts.transaksi')
         @else
             @include('layouts.printLayouts.laporan')
