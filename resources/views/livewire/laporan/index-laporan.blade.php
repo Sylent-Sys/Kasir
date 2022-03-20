@@ -1,5 +1,5 @@
 <div>
-    @include('layouts.title',['title'=>'Laporan'])
+    @include('layouts.title',['title'=>'Laporan','options'=>['laporan'=>true]])
     <a href="{{ route('print.laporan') }}" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></a>
     <div class="table-responsive">
         <table class="table table-bordered">
@@ -17,17 +17,17 @@
                 @php
                     $totalPemasukan = 0;
                 @endphp
-                @forelse ($menu as $item)
+                @forelse ($laporan as $item)
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
-                        <td>{{ $item->nama }}</td>
-                        <td>{{ $item->stok }}</td>
-                        <td>{{ $item->transaksiItems->sum('jumlah') }}</td>
-                        <td>{{ \App\Helpers\Globals::rupiah($item->harga) }}</td>
+                        <td>{{ $item->menu->nama }}</td>
+                        <td>{{ $item->menu->stok }}</td>
+                        <td>{{ $item->sum_jumlah }}</td>
+                        <td>{{ \App\Helpers\Globals::rupiah($item->menu->harga) }}</td>
                         @php
-                            $totalPemasukan += $item->transaksiItems->sum('jumlah') * $item->harga;
+                            $totalPemasukan += $item->sum_jumlah * $item->menu->harga;
                         @endphp
-                        <td>{{ \App\Helpers\Globals::rupiah($item->transaksiItems->sum('jumlah') * $item->harga) }}</td>
+                        <td>{{ \App\Helpers\Globals::rupiah($item->sum_jumlah * $item->menu->harga) }}</td>
                     </tr>
                 @empty
                     <tr>
