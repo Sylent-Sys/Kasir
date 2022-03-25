@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', IndexLaporan::class)->name('index');
     });
     Route::prefix('print')->name('print.')->middleware('can:admin,kasir,owner')->group(function () {
-        Route::get('laporan', [PrintController::class, 'printLaporan'])->name('laporan');
+        Route::get('laporan/{mode}/{bulan}/{tahun}', [PrintController::class, 'printLaporan'])->name('laporan');
         Route::get('transaksi/{transaksiDetail}', [PrintController::class, 'printTransaksi'])->name('transaksi');
     });
 });

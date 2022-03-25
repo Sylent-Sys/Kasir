@@ -1,4 +1,4 @@
-<table class="mt-3 table table-bordered">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>#</th>
@@ -16,18 +16,18 @@
         @forelse ($data as $item)
             <tr>
                 <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $item->nama }}</td>
-                <td>{{ $item->stok }}</td>
-                <td>{{ $item->transaksiItems->sum('jumlah') }}</td>
-                <td>{{ \App\Helpers\Globals::rupiah($item->harga) }}</td>
+                <td>{{ $item->menu->nama }}</td>
+                <td>{{ $item->menu->stok }}</td>
+                <td>{{ $item->sum_jumlah }}</td>
+                <td>{{ \App\Helpers\Globals::rupiah($item->menu->harga) }}</td>
                 @php
-                    $totalPemasukan += $item->transaksiItems->sum('jumlah') * $item->harga;
+                    $totalPemasukan += $item->sum_jumlah * $item->menu->harga;
                 @endphp
-                <td>{{ \App\Helpers\Globals::rupiah($item->transaksiItems->sum('jumlah') * $item->harga) }}</td>
+                <td>{{ \App\Helpers\Globals::rupiah($item->sum_jumlah * $item->menu->harga) }}</td>
             </tr>
         @empty
             <tr>
-                <td colspan="6" class="text-center">Tidak ada data</td>
+                <td colspan="6" class="text-center fw-bold">Tidak ada data</td>
             </tr>
         @endforelse
         <tr>

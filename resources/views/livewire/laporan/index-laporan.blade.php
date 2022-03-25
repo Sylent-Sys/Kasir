@@ -1,6 +1,6 @@
 <div>
     @include('layouts.title',['title'=>'Laporan','options'=>['laporan'=>true]])
-    <a href="{{ route('print.laporan') }}" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></a>
+    <a href="{{ route('print.laporan',['mode'=>$mode,'bulan'=>$bulan,'tahun'=>$tahun]) }}" class="btn btn-primary mb-3"><i class="bi bi-printer"></i></a>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>

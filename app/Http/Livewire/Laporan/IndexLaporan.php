@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Laporan;
 
 use App\Models\TransaksiItem;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Livewire\Component;
 
 class IndexLaporan extends Component
@@ -35,7 +34,6 @@ class IndexLaporan extends Component
         if ($this->mode == 'favorit') {
             $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->orderBy('sum_jumlah', 'desc')->groupBy('id_menu')->get();
         }
-        Debugbar::info($data);
         return view('livewire.laporan.index-laporan', ['laporan'=>$data]);
     }
 }
