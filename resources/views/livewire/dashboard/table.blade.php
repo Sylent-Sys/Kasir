@@ -9,23 +9,33 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $selectRoleUser = [
+                    \App\Helpers\RoleUser::PENGGUNA,
+                    \App\Helpers\RoleUser::WAITER,
+                    \App\Helpers\RoleUser::KASIR,
+                    \App\Helpers\RoleUser::OWNER,
+                    \App\Helpers\RoleUser::ADMIN
+                ];
+            @endphp
             @forelse ($data as $item)
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
                     <td>
-                        @if ($item->is_aktif)
-                            @if ($item->role !== 5)
-                                <a class="btn btn-success" wire:click='promote({{ $item->id }})'><i class="bi bi-person-plus"></i></a>
-                            @endif
-                            @if ($item->role !== 1)
-                                <a class="btn btn-danger" wire:click='demote({{ $item->id }})'><i class="bi bi-person-dash"></i></a>
-                            @endif
-                            <a class="btn btn-danger" wire:click='deactivate({{ $item->id }})'><i class="bi bi-person-x"></i></a>
-                        @else
-                            <a class="btn btn-success" wire:click='activate({{ $item->id }})'><i class="bi bi-person-check"></i></a>
-                            <a class="btn btn-danger" wire:click='delete({{ $item->id }})'><i class="bi bi-x-circle"></i></a>
-                        @endif
+                        <div class="d-flex align-content-center justify-content-between">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" wire:click='setActive({{ $item->id }})' @checked($item->is_aktif)>
+                                <label class="form-check-label">{{ $item->is_aktif ? 'Aktif' : 'Tidak Aktif' }}</label>
+                            </div>
+                            <div>
+                                <select onchange="setRoleUser(this)" class="form-select form-select-sm" data-id='{{ $item->id }}'>
+                                    @foreach ($selectRoleUser as $itemSelectRoleUser)
+                                        <option value="{{ $itemSelectRoleUser }}" @selected($itemSelectRoleUser == $item->role)>{{ \App\Helpers\RoleUser::getLabel($itemSelectRoleUser) }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @empty

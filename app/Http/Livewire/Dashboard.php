@@ -8,25 +8,18 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
+    public $listeners = ['setRoleUser'];
     public function render()
     {
         return view('livewire.dashboard', ['data'=>User::all()]);
     }
-    public function activate(User $user) {
-        $user->update(['is_aktif'=>true]);
-        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil diaktifkan']);
+    public function setActive(User $user) {
+        $user->update(['is_aktif'=>!$user->is_aktif]);
+        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil '. ($user->is_aktif ? 'diaktifkan' : 'dinonaktifkan')]);
     }
-    public function deactivate(User $user) {
-        $user->update(['is_aktif'=>false]);
-        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil dinonaktifkan']);
-    }
-    public function promote(User $user) {
-        $user->update(['role'=>$user->role+1]);
-        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil dipromosikan menjadi '.RoleUser::getLabel($user->role)]);
-    }
-    public function demote(User $user) {
-        $user->update(['role'=>$user->role-1]);
-        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil didemosikan menjadi '.RoleUser::getLabel($user->role)]);
+    public function setRoleUser(User $user, $role) {
+        $user->update(['role'=>$role]);
+        $this->dispatchBrowserEvent('alert', ['type'=>'success','message'=>'Akun berhasil diubah menjadi '.RoleUser::getLabel($role)]);
     }
     public function delete(User $user) {
         $user->delete();
