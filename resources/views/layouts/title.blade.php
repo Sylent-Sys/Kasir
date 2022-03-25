@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-0 mb-3 border-bottom">
     <h1>{{ $title }}</h1>
-    @if ($options['laporan']??false)
+    @if ($options['laporan']??'')
         <div class="btn-toolbar">
             <div class="me-2">
                 <select wire:model='mode' class="form-select form-select-sm">
