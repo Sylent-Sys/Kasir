@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-0 mb-3 border-bottom">
     <h1>{{ $title }}</h1>
-    @if ($options['laporan']??'')
+    @if ($options['laporan'] ?? '')
         <div class="btn-toolbar">
             <div class="me-2">
                 <select wire:model='mode' class="form-select form-select-sm">
@@ -21,10 +21,12 @@
             @endif
             @if ($mode == 'tahunan' || $mode == 'bulanan')
                 <div class="me-2">
-                    <select wire:model='tahun' class="form-select form-select-sm">
-                        @foreach ($array_tahun as $item)
+                    <select wire:model='tahun' class="form-select form-select-sm" @if(count($array_tahun) == 0) disabled @endif>
+                        @forelse ($array_tahun as $item)
                             <option value="{{ $item }}">{{ $item }}</option>
-                        @endforeach
+                        @empty
+                            <option value="#">Data Tahun Belum Ada</option>
+                        @endforelse
                     </select>
                 </div>
             @endif

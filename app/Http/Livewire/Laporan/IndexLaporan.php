@@ -16,7 +16,7 @@ class IndexLaporan extends Component
     {
         $this->array_tahun = TransaksiItem::query()->selectRaw('YEAR(created_at) as tahun')->groupBy('tahun')->get()->pluck('tahun')->toArray();
         $this->array_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-        $this->tahun = $this->array_tahun[0];
+        $this->tahun = $this->array_tahun[0]??date('Y');
         $this->bulan = 1;
         $this->mode = 'semua';
     }
