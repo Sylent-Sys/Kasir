@@ -14,14 +14,14 @@ class IndexLaporan extends Component
     public $mode;
     public function mount()
     {
-        $this->array_tahun = TransaksiItem::query()->selectRaw('YEAR(created_at) as tahun')->groupBy('tahun')->get()->pluck('tahun')->toArray();
         $this->array_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-        $this->tahun = $this->array_tahun[0]??date('Y');
-        $this->bulan = 1;
+        $this->tahun = intval($this->array_tahun[0]??date('Y'));
+        $this->bulan = intval(date('m'));
         $this->mode = 'semua';
     }
     public function render()
     {
+        $this->array_tahun = TransaksiItem::query()->selectRaw('YEAR(created_at) as tahun')->groupBy('tahun')->get()->pluck('tahun')->toArray();
         if ($this->mode == 'semua') {
             $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->get();
         }
