@@ -23,16 +23,16 @@ class IndexLaporan extends Component
     {
         $this->array_tahun = TransaksiItem::query()->selectRaw('YEAR(created_at) as tahun')->groupBy('tahun')->get()->pluck('tahun')->toArray();
         if ($this->mode == 'semua') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->groupBy('menu_id')->get();
         }
         if ($this->mode == 'bulanan') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, MONTH(created_at) as bulan, YEAR(created_at) as tahun, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->having('tahun', $this->tahun)->having('bulan', $this->bulan)->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->whereYear('created_at', $this->tahun)->whereMonth('created_at', $this->bulan)->groupBy('menu_id')->get();
         }
         if ($this->mode == 'tahunan') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, YEAR(created_at) as tahun, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->having('tahun', $this->tahun)->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->whereYear('created_at', $this->tahun)->groupBy('menu_id')->get();
         }
         if ($this->mode == 'favorit') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->orderBy('sum_jumlah', 'desc')->groupBy('id_menu')->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->orderBy('sum_jumlah', 'desc')->groupBy('menu_id')->get();
         }
         return view('livewire.laporan.index-laporan', ['laporan'=>$data]);
     }

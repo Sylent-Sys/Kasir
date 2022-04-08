@@ -16,16 +16,16 @@ class PrintController extends Controller
     public function printLaporan($mode, $bulan, $tahun)
     {
         if ($mode == 'semua') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->groupBy('menu_id')->get();
         }
         if ($mode == 'bulanan') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, MONTH(created_at) as bulan, YEAR(created_at) as tahun, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->having('tahun', $tahun)->having('bulan', $bulan)->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->whereYear('created_at', $tahun)->whereMonth('created_at', $bulan)->groupBy('menu_id')->get();
         }
         if ($mode == 'tahunan') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, YEAR(created_at) as tahun, SUM(jumlah) as sum_jumlah')->groupBy('id_menu')->having('tahun', $tahun)->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->whereYear('created_at', $tahun)->groupBy('menu_id')->get();
         }
         if ($mode == 'favorit') {
-            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->orderBy('sum_jumlah', 'desc')->groupBy('id_menu')->get();
+            $data = TransaksiItem::query()->with('menu')->selectRaw('*, SUM(jumlah) as sum_jumlah')->orderBy('sum_jumlah', 'desc')->groupBy('menu_id')->get();
         }
         return view('layouts.print', ['data'=>$data]);
     }
