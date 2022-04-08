@@ -7,24 +7,18 @@ models:
     relationships:
       hasMany: TransaksiItem
   TransaksiDetail:
-    id_user: foreign:users.id
+    user_id: foreign:user.id
     no_meja: integer
     total: integer
     relationships:
-      belongsTo: User
       hasOne: Pembayaran
       hasMany: TransaksiItem
   TransaksiItem:
-    id_transaksi_detail: foreign:transaksi_details.id
-    id_menu: foreign:menus.id
+    transaksi_detail_id: foreign:transaksi_detail.id
+    menu_id: foreign:menu.id
     jumlah: integer
-    relationships:
-      belongsTo: TransaksiDetail, Menu
   Pembayaran:
-    id_user: foreign:users.id
-    id_transaksi_detail: foreign:transaksi_details.id
+    user_id: foreign:user.id
+    transaksi_detail_id: foreign:transaksi_detail.id
     bayar: integer
     kembalian: integer
-    relationships:
-      belongsTo: User, TransaksiDetail
-seeders: User, Menu, TransaksiItem, TransaksiDetail, Pembayaran
