@@ -47,7 +47,7 @@ class IndexPesanan extends Component
                 // After Insert dengan nama kurangStok di tabel transaksi_items
                 // UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.id_menu
                 $transaksiItem = new TransaksiItem([
-                    'id_menu'=>$key,
+                    'menu_id'=>$key,
                     'jumlah'=>$value['jumlah']
                 ]);
                 $transaksiDetail->transaksiItems()->save($transaksiItem);
