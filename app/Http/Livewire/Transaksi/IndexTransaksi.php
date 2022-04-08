@@ -11,7 +11,7 @@ class IndexTransaksi extends Component
     public function render()
     {
         return view('livewire.transaksi.index-transaksi',[
-            'belumBayar'=>TransaksiDetail::query()->doesntHave('pembayarans')->with('user')->get(),
+            'belumBayar'=>TransaksiDetail::query()->doesntHave('pembayaran')->with('user')->get(),
             'sudahBayar'=>Pembayaran::query()->with(['user','transaksiDetail'])->get()
         ]);
     }
