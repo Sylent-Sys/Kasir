@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Helpers\RoleUser;
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -51,5 +52,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'is_aktif'=>true
         ]);
+        Menu::factory(10)->create();
     }
 }
