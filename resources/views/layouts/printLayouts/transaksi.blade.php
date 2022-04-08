@@ -7,7 +7,7 @@
     <tr>
         <td>Nama Kasir &nbsp;&nbsp;</td>
         <td>: &nbsp;&nbsp;</td>
-        <td>{{ $data->pembayarans->user->name }}</td>
+        <td>{{ $data->pembayaran->user->name }}</td>
     </tr>
     <tr>
         <td>Waktu Pesan &nbsp;&nbsp;</td>
@@ -46,11 +46,11 @@
         </tr>
         <tr>
             <td colspan="4">Uang Bayar</td>
-            <td>{{ App\Helpers\Globals::rupiah($data->pembayarans->bayar) }}</td>
+            <td>{{ App\Helpers\Globals::rupiah($data->pembayaran->bayar) }}</td>
         </tr>
         <tr>
             <td colspan="4">Uang Kembali</td>
-            <td>{{ App\Helpers\Globals::rupiah($data->pembayarans->kembalian) }}</td>
+            <td>{{ App\Helpers\Globals::rupiah($data->pembayaran->kembalian) }}</td>
         </tr>
     </tbody>
 </table>
