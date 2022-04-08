@@ -32,7 +32,7 @@ class IndexPesanan extends Component
     {
         $this->validate();
         $transaksiDetail = new TransaksiDetail([
-            'id_user'=>auth()->user()->id,
+            'user_id'=>auth()->user()->id,
             'total'=>$totalHarga,
             'no_meja'=>$this->no_meja
         ]);

@@ -17,8 +17,8 @@ class FormPembayaran extends Component
     public function pembayaran($kembalian)
     {
         if (Pembayaran::create([
-            'id_user'=>auth()->user()->id,
-            'id_transaksi_detail' => $this->transaksiDetail->id,
+            'user_id'=>auth()->user()->id,
+            'transaksi_detail_id' => $this->transaksiDetail->id,
             'bayar'=>$this->membayar,
             'kembalian'=>$kembalian
         ])->save()) {
