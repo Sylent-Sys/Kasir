@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateTransaksiItemsTable extends Migration
 {
@@ -24,6 +25,8 @@ class CreateTransaksiItemsTable extends Migration
         });
 
         Schema::enableForeignKeyConstraints();
+        DB::select("DROP TRIGGER IF EXISTS `kurangStok`");
+        DB::select("CREATE TRIGGER `kurangStok` AFTER INSERT ON `transaksi_items` FOR EACH ROW UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.menu_id");
     }
 
     /**
