@@ -22,6 +22,7 @@ CREATE TRIGGER `kurangStok`  AFTER  INSERT  ON  `transaksi_items` FOR EACH ROW  
 ### Buat Blueprint dan build
 ### Pastikan hasil Migrationmu sudah ada procedure dan trigger
 ### Pastikan Modelsmu sudah sesuai
+### Buat Gate di AuthServiceProvider
 ### Buat Helpers Globals.php RoleUser.php
 ### Buat Layouts
 1. app.blade.php
