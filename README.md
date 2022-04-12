@@ -1,24 +1,24 @@
-#Panduan Projek UKK Kasir
-##Dependensi
+# Panduan Projek UKK Kasir
+## Dependensi
 1. Laravel Blueprint
 2. Laravel Livewire
 3. Laravel Debugbar
-##Perintah di CLI Yang Harus Di Ketik
+## Perintah di CLI Yang Harus Di Ketik
 ```bash
     php artisan storage:link
     php artisan blueprint:build
 ```
-##Procedure
+## Procedure
 ```sql
 DROP PROCEDURE IF EXISTS `hapusMenu`
 CREATE PROCEDURE `hapusMenu`(IN `idMenu` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM `menus` WHERE `menus`.`id`=idMenu
 ```
-##Trigger
+## Trigger
 ```sql
 DROP TRIGGER IF EXISTS `kurangStok`
 CREATE TRIGGER `kurangStok` AFTER INSERT ON `transaksi_items` FOR EACH ROW UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.menu_id
 ```
-##Proses Pengerjaan
+## Proses Pengerjaan
 1. Buat Blueprint dan build
 2. Pastikan hasil Migrationmu sudah ada procedure dan trigger
 3. Pastikan Modelsmu sudah sesuai
