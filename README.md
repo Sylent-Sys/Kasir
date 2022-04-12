@@ -1,64 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#Panduan Projek UKK Kasir
+##Dependensi
+1. Laravel Blueprint
+2. Laravel Livewire
+3. Laravel Debugbar
+##Perintah di CLI Yang Harus Di Ketik
+```bash
+    php artisan storage:link
+    php artisan blueprint:build
+```
+##Procedure
+```sql
+DROP PROCEDURE IF EXISTS `hapusMenu`
+CREATE PROCEDURE `hapusMenu`(IN `idMenu` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM `menus` WHERE `menus`.`id`=idMenu
+```
+##Trigger
+```sql
+DROP TRIGGER IF EXISTS `kurangStok`
+CREATE TRIGGER `kurangStok` AFTER INSERT ON `transaksi_items` FOR EACH ROW UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.menu_id
+```
+##Proses Pengerjaan
+1. Buat Blueprint dan build
+2. Pastikan hasil Migrationmu sudah ada procedure dan trigger
+3. Pastikan Modelsmu sudah sesuai
+4. Buat Helpers Globals.php RoleUser.php
+5. Buat Layouts
+    app.blade.php
+    header.blade.php
+    sidebar.blade.php
+    title.blade.php
+    print.blade.html
+    transaksi.blade.php
+    laporan.blade.php > ambil aja dari table yang lu buat di index-laporan.blade.php
+6. Buat Login
+    ```bash
+    php artisan make:livewire Auth.Login
+    ```
+    Login.php
+    login.blade.php
+7. Buat Register
+    ```bash
+    php artisan make:livewire Auth.Register
+    ```
+    Register.php
+    register.blade.php > ambil saja dari login.blade.php tinggal tambahin input untuk password, ganti event di tag form, dan kata2 di tag a jadi “Sudah Punya Akun?” hrefny ke login
+8. Buat Dashboard
+    ```bash
+    php artisan make:livewire Dashboard
+    ```
+    Dashboard.php
+    dashboard.blade.php
+    table.blade.php
+    admin.blade.php
+    guest.blade.php > cuma div yang isiny "Selamat Datang Di Aplikasi Kami"
+9.  Buat Index Menu
+    ```bash
+    php artisan make:livewire Menu.IndexMenu
+    ```
+    IndexMenu.php
+    index-menu.blade.php
+    card.blade.php
+10. Buat Add Menu
+    ```bash
+    php artisan make:livewire Menu.AddMenu
+    ```
+    AddMenu.php
+    add-menu.blade.php
+11. Buat Edit Menu
+    ```bash
+    php artisan make:livewire Menu.EditMenu
+    ```
+    EditMenu.php
+    edit-menu.blade.php > ambil aja dari add-menu.php dengan catatan ganti di Title jadi “Edit Menu”, form event jadi edit, terus wire:model semuany dari data. ke menu. dan di input gambar jadi gambar saja
+12. Buat Pesanan
+    ```bash
+    php artisan make:livewire Pesanan.IndexPesanan
+    ```
+    IndexPesanan.php
+    index-pesanan.blade.php
+13. Buat IndexTransksi
+    ```bash
+    php artisan make:livewire Transaksi.IndexTransaksi
+    ```
+    IndexTransaksi.php
+    index-transaksi.blade.php
+14. Buat FormPembayaran
+    ```bash
+    php artisan make:livewire Transaksi.FormPembayaran
+    ```
+    FormPembayaran.php
+    form-pembayaran-blade.php
+15. Buat IndexLaporan
+    ```bash
+    php artisan make:livewire Laporan.IndexLaporan
+    ```
+    IndexLaporan.php > passing data
+    index-laporan.blade.php
+16.  Buat Controller Print
+    ```bash
+    php artisan make:controller PrintController
+    ```
+    PrintController.php
