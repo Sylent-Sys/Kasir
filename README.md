@@ -10,13 +10,13 @@
 ```
 ## Procedure
 ```sql
-DROP PROCEDURE IF EXISTS `hapusMenu`
-CREATE PROCEDURE `hapusMenu`(IN `idMenu` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM `menus` WHERE `menus`.`id`=idMenu
+DROP PROCEDURE IF EXISTS `hapusMenu`;
+CREATE PROCEDURE `hapusMenu`(IN `idMenu` INT) NOT DETERMINISTIC CONTAINS SQL SQL SECURITY DEFINER DELETE FROM `menus` WHERE `menus`.`id`=idMenu;
 ```
 ## Trigger
 ```sql
-DROP TRIGGER IF EXISTS `kurangStok`
-CREATE TRIGGER `kurangStok` AFTER INSERT ON `transaksi_items` FOR EACH ROW UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.menu_id
+DROP TRIGGER IF EXISTS `kurangStok`;
+CREATE TRIGGER `kurangStok` AFTER INSERT ON `transaksi_items` FOR EACH ROW UPDATE `menus` SET `menus`.`stok`=`menus`.`stok`-new.jumlah WHERE `menus`.`id`=new.menu_id;
 ```
 ## Proses Pengerjaan
 1. Buat Blueprint dan build
